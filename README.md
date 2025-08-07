@@ -1,46 +1,33 @@
-# Welcome to your Convex + Next.js + Convex Auth app
+# Repro steps / Install process
 
-This is a [Convex](https://convex.dev/) project created with [`npm create convex`](https://www.npmjs.com/package/create-convex).
+Here are the guides I used:
 
-After the initial setup (<2 minutes) you'll have a working full-stack app using:
+1. https://docs.convex.dev/quickstart/nextjs
+2. https://www.convex.dev/components/rag
 
-- Convex as your backend (database, server logic)
-- [React](https://react.dev/) as your frontend (web page interactivity)
-- [Next.js](https://nextjs.org/) for optimized web hosting and page routing
-- [Tailwind](https://tailwindcss.com/) for building great looking accessible UI
-- [Convex Auth](https://labs.convex.dev/auth) for authentication
-
-## Get started
-
-If you just cloned this codebase and didn't use `npm create convex`, run:
+Here are the terminal commands I ran to install everything:
 
 ```
-npm install
-npm run dev
+npm create convex@latest // I chose Next.JS and Convex Auth
+
+npm install ai
+
+npm install @ai-sdk/openai
 ```
 
-If you're reading this README on GitHub and want to use this template, run:
+# Where is the problem?
+
+Here is where you can view the file that is producing the error:
+[convex/ai.ts](convex/ai.ts)
+
+# What is the error?
 
 ```
-npm create convex@latest -- -t nextjs-convexauth
+Type 'EmbeddingModelV2<string>' is not assignable to type 'EmbeddingModelV1<string>'.
+  Types of property 'specificationVersion' are incompatible.
+    Type '"v2"' is not assignable to type '"v1"'.ts(2322)
+
+index.d.ts(43, 9): The expected type comes from property 'textEmbeddingModel' which is declared
+here on type '{ embeddingDimension: number; textEmbeddingModel: EmbeddingModelV1<string>;
+filterNames?: FilterNames<Record<string, Value>> | undefined; }'
 ```
-
-## Learn more
-
-To learn more about developing your project with Convex, check out:
-
-- The [Tour of Convex](https://docs.convex.dev/get-started) for a thorough introduction to Convex principles.
-- The rest of [Convex docs](https://docs.convex.dev/) to learn about all Convex features.
-- [Stack](https://stack.convex.dev/) for in-depth articles on advanced topics.
-- [Convex Auth docs](https://labs.convex.dev/auth) for documentation on the Convex Auth library.
-
-## Configuring other authentication methods
-
-To configure different authentication methods, see [Configuration](https://labs.convex.dev/auth/config) in the Convex Auth docs.
-
-## Join the community
-
-Join thousands of developers building full-stack apps with Convex:
-
-- Join the [Convex Discord community](https://convex.dev/community) to get help in real-time.
-- Follow [Convex on GitHub](https://github.com/get-convex/), star and contribute to the open-source implementation of Convex.
