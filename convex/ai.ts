@@ -7,6 +7,8 @@ const rag = new RAG(components.rag, {
   embeddingDimension: 1536,
 });
 
+console.log({ rag });
+
 /** Error from above ^
  * Type 'EmbeddingModelV2<string>' is not assignable to type 'EmbeddingModelV1<string>'.
     Types of property 'specificationVersion' are incompatible.
